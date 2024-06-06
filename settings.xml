@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-
-<settings xmlns="http://maven.apache.org/SETTINGS/1.2.0"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.2.0 https://maven.apache.org/xsd/settings-1.2.0.xsd">
-
-  <servers>
-    <server>
-      <id>abc-dev</id>
-      <username>aws</username>
-      <password><<token>></password>
-    </server>
-  </servers>
-  <profiles>
-	<profile>
-	    <id>abc-dev</id>
-	    <activation>
-	      <activeByDefault>true</activeByDefault>
-	    </activation>
-	    <repositories>
-	      <repository>
-	        <id>abc-dev</id>
-	        <url>https://abc-<<account_id>>.d.codeartifact.us-east-2.amazonaws.com/maven/dev/</url>
-	      </repository>
-	    </repositories>
-	  </profile> 
-	</profiles>
-
-
-</settings>
+<servers>
+  <server>
+    <id>maven-domain-maven-repo</id>
+    <username>aws</username>
+    <password>${env.CODEARTIFACT_AUTH_TOKEN}</password>
+  </server>
+</servers>
+<profiles>
+  <profile>
+    <id>maven-domain-maven-repo</id>
+    <activation>
+      <activeByDefault>true</activeByDefault>
+    </activation>
+    <repositories>
+      <repository>
+        <id>maven-domain-maven-repo</id>
+        <url>https://maven-domain-${env.ACCOUNT_ID}.d.codeartifact.ap-south-1.amazonaws.com/maven/maven-repo/</url>
+      </repository>
+    </repositories>
+  </profile>
+</profiles>
+<mirrors>
+  <mirror>
+    <id>maven-domain-maven-repo</id>
+    <name>maven-domain-maven-repo</name>
+    <url>https://maven-domain-${env.ACCOUNT_ID}.d.codeartifact.ap-south-1.amazonaws.com/maven/maven-repo/</url>
+    <mirrorOf>*</mirrorOf>
+  </mirror>
+</mirrors>
+</project>
