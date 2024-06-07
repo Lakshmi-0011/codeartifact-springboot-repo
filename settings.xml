@@ -7,7 +7,7 @@
   <server>
     <id>maven-domain-maven-repo</id>
     <username>aws</username>
-    <password>${env.CODEARTIFACT_AUTH_TOKEN}</password>
+    <password>${env.AWS_CODEARTIFACT_AUTH_TOKEN}</password>
   </server>
 </servers>
 <profiles>
