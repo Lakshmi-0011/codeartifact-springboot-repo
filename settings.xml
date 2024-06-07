@@ -19,7 +19,7 @@
     <repositories>
       <repository>
         <id>maven-domain-maven-repo</id>
-        <url>https://$(env.CODEARTIFACT_DOMAIN_NAME)-${env.ACCOUNT_ID}.d.codeartifact.${env.AWS_REGION}.amazonaws.com/maven/$(env.CODEARTIFACT_REPO_NAME)/</url>
+        <url>https://$(env.CODEARTIFACT_DOMAIN_NAME)-${env.CODEARTIFACT_DOMAIN_OWNER}.d.codeartifact.${env.AWS_REGION}.amazonaws.com/maven/$(env.CODEARTIFACT_REPO_NAME)/</url>
       </repository>
     </repositories>
   </profile>
@@ -28,7 +28,7 @@
   <mirror>
     <id>maven-domain-maven-repo</id>
     <name>maven-domain-maven-repo</name>
-    <url>https://$(env.CODEARTIFACT_DOMAIN_NAME)-${env.ACCOUNT_ID}.d.codeartifact.${env.AWS_REGION}.amazonaws.com/maven/$(env.CODEARTIFACT_REPO_NAME)/</url>
+    <url>https://$(env.CODEARTIFACT_DOMAIN_NAME)-${env.CODEARTIFACT_DOMAIN_OWNER}.d.codeartifact.${env.AWS_REGION}.amazonaws.com/maven/$(env.CODEARTIFACT_REPO_NAME)/</url>
     <mirrorOf>*</mirrorOf>
   </mirror>
 </mirrors>
